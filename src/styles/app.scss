@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:light,regular,medium,bold,italic&subset=latin,latin-ext');
+@import "./variables.scss";
+@import "./main.scss";
+@import "./input.scss";
+
+// component
+@import "./components/header.scss";
+@import "./components/books.scss";
+@import "./components/book.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #FEFEFE;
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $green;
+    font-size: 14px;
+    border-radius: 50%;
+    font-weight: 400;
+    color: $white;
+}

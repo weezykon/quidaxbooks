@@ -1,0 +1,16 @@
+.header {
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            p {
+                color: rgba(170, 170, 170, 1)
+            }
+        }
+    }
+}
