@@ -14,7 +14,7 @@ import Book from './pages/book';
 // routes config
 const routes = [
   { path: '/', name: 'Home', Component: Home },
-  { path: '/book', name: 'Book', Component: Book },
+  { path: '/book/:id', name: 'Book', Component: Book },
 ];
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -28,29 +28,13 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const link = from([
   errorLink,
-  new HttpLink({ uri: 'http://localhost:4000/graphql' }),
+  new HttpLink({ uri: 'https://quidax-feec-graphql.herokuapp.com/graphql' }),
 ]);
 
 const client = new ApolloClient({
   link,
   cache: new InMemoryCache(),
 });
-
-// const App = () => {
-//   return (
-//     <ApolloProvider client={client}>
-//       <div className="App">
-//         <Header />
-//         <div className="container">
-//           <Route path="/" exact component={Home} />
-//           <Route path="/book" exact component={Book} />
-//         </div>
-//       </div>
-//     </ApolloProvider>
-//   );
-// };
-
-// export default App;
 
 function App() {
   return (
