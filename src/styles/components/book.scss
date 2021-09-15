@@ -12,12 +12,19 @@
         }
     }
 
+    .fixedButton {
+        display: none;
+    }
+
     .book {
         display: flex;
         justify-content: space-between;
 
 
         .book-cover {
+            .mobile-title {
+                display: none;
+            }
 
             img {
                 width: 240px;
@@ -160,11 +167,111 @@
             }
 
             .book-description {
-                padding-top: 30px;
+                padding: 30px 0 50px;
 
                 p {
                     font-size: 15px;
                     line-height: 25px;
+                }
+            }
+        }
+    }
+}
+
+// media queries
+@media (max-width: 768px) {
+    .book-page {
+        padding: 50px 15px;
+
+        .book {
+            flex-direction: column;
+            
+            .web-title {
+                display: none;
+            }
+
+            .book-cover {
+
+                img {
+                    width: 133px;
+                }
+
+                .mobile-title {
+                    display: block !important;
+                    font-size: 28px;
+                    line-height: 50px;
+                }
+                
+                .availability, .text-price {
+                    display: none !important;
+                }
+
+                button {
+                    display: none !important;
+                }
+            }
+
+            .book-content {
+                width: 100% !important;
+
+                .book-type {
+                    display: none !important;
+                }
+            }
+
+            .fixedButton {
+                display: flex !important;
+                position: fixed;
+                bottom: 5px;
+                left: 0;
+                padding: 0 20px;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border: none;
+                    background: #000000;
+                    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.05);
+                    color: #fff;
+                    font-weight: 700;
+                    padding: 0 30px;
+                    margin: 20px 0;
+                    cursor: pointer;
+
+                    img {
+                        width: auto;
+                        margin: 0;
+                    }
+
+                    .black-cart-icon {
+                        display: none;
+                    }
+
+                    span {
+                        text-align: left;
+                    }
+
+                    .price {
+                        font-size: 28px;
+                        font-weight: 300 !important;
+                    }
+
+                    &:hover {
+                        background: #fff;
+                        color: #000;
+
+                        .black-cart-icon {
+                            display: block;
+                        }
+
+                        .white-cart-icon {
+                            display: none;
+                        }
+                    }
                 }
             }
         }

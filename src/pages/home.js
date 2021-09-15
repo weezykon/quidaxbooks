@@ -17,7 +17,6 @@ function Home() {
 
     useEffect(() => {
         if (data) {
-            // setBooks(data.books);
             dispatch(setBooks(data.books))
         }
     }, [data]);

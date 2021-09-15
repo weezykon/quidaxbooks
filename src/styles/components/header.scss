@@ -17,8 +17,38 @@
             cursor: pointer;
         }
 
+        .mobile-search {
+            display: none;
+        }
+
         button {
             cursor: pointer;
+        }
+
+        // media query
+        @media (max-width: 768px) {
+            .title {
+                h1 {
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+                p {
+                    display: none;
+                }
+            }
+
+            .web-search {
+                display: none;
+            }
+
+            .mobile-search {
+                display: flex;
+                cursor: pointer;
+            }
+
+            .closeBack {
+                cursor: pointer;
+            }
         }
     }
 }

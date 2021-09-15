@@ -43,6 +43,15 @@
                         inherits: false;
                     }
                 }
+
+
+                // media queries
+                @media (max-width: 500px) {
+                    img {
+                        width: 140px;
+                        height: 220px;
+                    }
+                }
             }
 
             .swiper-wrapper {
@@ -70,8 +79,27 @@
                 right: 0;
             }
 
+            .swiper-button-prev::after, .swiper-button-next::after {
+                border-top: 5px solid transparent;
+                border-right: 8px solid black;
+                border-bottom: 5px solid transparent;
+                content: "" !important;
+            }
+
+            .swiper-button-next::after {
+                transform: rotate(-180deg);
+            }
+
             .swiper-pagination-bullet-active {
                 background-color: $green !important;
+            }
+
+            //media queries
+            @media (max-width: 500px) {
+                .swiper-button-prev, .swiper-button-next {
+                    height: 290px;
+                    width: 40px;
+                }
             }
         }
     }
@@ -95,7 +123,8 @@
         padding: 0 20px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-
+        
+        
         a {
             text-decoration: none;
             color: inherit;
@@ -226,6 +255,33 @@
 
             .book:hover {
                 box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    // media query
+    @media (max-width: 768px) {
+        .lists {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book {
+            margin: 20px 0 !important;
+        }
+
+        .cart {
+            .price {
+                p {
+                    font-size: 13px !important;
+                    line-height: 15px !important;
+                }
+            }
+        }
+
+        .rating-box {
+            span {
+                display: flex;
             }
         }
     }

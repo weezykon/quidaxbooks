@@ -25,11 +25,13 @@ const BookDetails = ({ book }) => {
             <div className="book">
                     <div className="book-cover">
                         <img src={book.image_url} alt="book" />
+
+                        <h2 className="mobile-title">{book.title}</h2>
                         {
                             book.available_copies > 0 ? (
-                                <p className="text-green">{book.available_copies} Copies Available</p>
+                                <p className="text-green availability">{book.available_copies} Copies Available</p>
                             ) : (
-                                <p className="text-red">Out of Stock</p>
+                                <p className="text-red availability">Out of Stock</p>
                             )
                         }
                         <p className="text-price">${book.price}</p>
@@ -42,9 +44,22 @@ const BookDetails = ({ book }) => {
                         ) : ('')}
                     </div>
 
+                    <div className="fixedButton">
+                        {book.available_copies > 0 ? (
+                            <button onClick={() => { addToCart(book) }}>
+                                <img src={cartIcon} alt="cart" className="white-cart-icon" />
+                                <img src={cartBlackIcon} alt="cart" className="black-cart-icon" />
+                                <span>Add to Cart <br/>
+                                    <span className="text-green">{book.available_copies} Copies Available</span>
+                                </span>
+                                <span className="price">${book.price}</span>
+                            </button>
+                        ) : ('')}
+                    </div>
+
                     <div className="book-content">
                         <div className="book-details">
-                            <h2 className="title">{book.title}</h2>
+                            <h2 className="title web-title">{book.title}</h2>
                             <p className="author">{getValues(book.authors)}</p>
                             <p className="year">{new Date(book.published_at).getFullYear()}</p>
                         </div>

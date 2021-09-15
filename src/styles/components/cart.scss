@@ -6,6 +6,7 @@
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, .4);
+    z-index: 99;
 }
 
 .cart-modal {
@@ -19,6 +20,7 @@
     background: #FEFEFE;
     outline: transparent;
 }
+
 
 
 .modal-content {
@@ -228,5 +230,14 @@
                 }
             }
         }
+    }
+}
+
+
+//media query
+@media (max-width: 768px) {
+    .cart-modal {
+        max-width: 100%;
+        width: 100%;
     }
 }
