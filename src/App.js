@@ -11,11 +11,13 @@ import CartModal from './components/CartModal';
 // pages
 import Home from './pages/home';
 import Book from './pages/book';
+import SearchPage from './pages/search';
 
 // routes config
 const routes = [
   { path: '/', name: 'Home', Component: Home },
   { path: '/book/:id', name: 'Book', Component: Book },
+  { path: '/search', name: 'SearchPage', Component: SearchPage },
 ];
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

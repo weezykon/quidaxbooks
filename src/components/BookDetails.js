@@ -61,7 +61,7 @@ const BookDetails = ({ book }) => {
                         <div className="book-details">
                             <h2 className="title web-title">{book.title}</h2>
                             <p className="author">{getValues(book.authors)}</p>
-                            <p className="year">{book.published_at.slice(0, 4)}</p>
+                            <p className="year">{book.published_at ? book.published_at.slice(0, 4) : ''}</p>
                         </div>
                         <div className="book-rating">
                             <div className="flex flex-column user">

@@ -24,11 +24,11 @@ const SlideItem = ({ book }) => {
                             <p className="year">{book.published_at.slice(0, 4)}</p>
                         </div>
                         <div className="genre">
-                            <p>Genre</p>
+                            <p className="font-semibold">Genre</p>
                             <p>{book.genres.map(genre => genre.name).join(', ')}</p>
                         </div>
                         <div className="tags">
-                            <p>Tags</p>
+                            <p className="font-semibold">Tags</p>
                             <p>{book.tags.map(tag => tag.name).join(', ')}</p>
                         </div>
                         <div className="rating">

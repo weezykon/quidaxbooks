@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import searchIcon from './../assets/images/search.svg';
 import closeIcon from './../assets/images/close.svg';
 import { quickSearch } from './cartQuery';
+import { useHistory, useLocation } from "react-router-dom"
 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,10 +10,19 @@ import { setSearchResults, setIsSearching } from '../actions';
 
 const Search = () => {
     const [search, setSearch] = useState('');
-    const { isSearching, books } = useSelector(state => state);
+    const [started, setStarted] = useState(false);
+    const { isSearching, books, searchResults } = useSelector(state => state);
     const dispatch = useDispatch();
+    const history = useHistory()
+    const location = useLocation() 
 
     const handleSearchInputChanges = (e) => {
+        console.log(e.target.value)
+        if(!started) {
+            redirectToSearch();
+            console.log(started, 'moved')
+            setStarted(true);
+        }
         dispatch(setIsSearching(true));
         setSearch(e.target.value);
         const searchResults = quickSearch(books, e.target.value);
@@ -22,12 +32,20 @@ const Search = () => {
         if (e.target.value === '') {
             dispatch(setIsSearching(false));
             setSearchResults([]);
+            setStarted(false);
+        }
+    }
+
+    const redirectToSearch = () => {
+        if (location.pathname !== "/search") {
+            history.push("/search")
         }
     }
 
     const closeSearch = () => {
         dispatch(setIsSearching(false));
         setSearch('');
+        setStarted(false);
     }
     return (
         <>

@@ -17,6 +17,7 @@ function Home() {
 
     useEffect(() => {
         if (data) {
+            // setBooks(data.books);
             dispatch(setBooks(data.books))
         }
     }, [data]);
@@ -36,11 +37,7 @@ function Home() {
             <section className="container">
                 <div className="books">
                     <div className="title-head">
-                        {(!isSearching ) ? (
-                            <p className="font-medium">All Books</p>
-                        ) : (
-                            <p><b>{searchResults.books.length} results</b> found for <b>`{searchResults.keywords}`</b></p>
-                        )}
+                        <p className="font-medium">All Books</p>
                     </div>
                     {(!isSearching) ? (
                         <section className="lists">
