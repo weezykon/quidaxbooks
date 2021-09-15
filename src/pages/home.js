@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setBooks } from './../actions';
 
 function Home() {
-    const { loading, error, data } = useQuery(GET_ALL_BOOKS);
+    const { loading, data } = useQuery(GET_ALL_BOOKS);
 
     const { books, isSearching, searchResults } = useSelector(state => state);
     const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCartBox, setCarts } from '../actions';
 
 const BookDetails = ({ book }) => {
-    const { cartModal, carts } = useSelector(state => state);
+    const { carts } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const addToCart = (book) => {

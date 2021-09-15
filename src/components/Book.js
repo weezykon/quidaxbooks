@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCartBox, setCarts } from '../actions';
 
 function Book({ book }) {
-    const { cartModal, carts } = useSelector(state => state);
+    const { carts } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const addToCart = e => {

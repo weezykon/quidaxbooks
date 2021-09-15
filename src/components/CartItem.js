@@ -2,7 +2,7 @@ import React from 'react'
 import { getValues } from './cartQuery';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { REMOVE_CART_ITEM, INCREASE_CART_ITEM, DECREASE_CART_ITEM } from './../actions';
 
 function CartItem({ cart }) {

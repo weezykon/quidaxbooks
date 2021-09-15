@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Modal from 'react-modal';
 import backArrowIcon from './../assets/images/back-arrow.svg';
 import cartBlackIcon from './../assets/images/cart.svg';

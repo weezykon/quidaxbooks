@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import logo from './../assets/images/logo.svg';
 import bookIcon from './../assets/images/book.svg';
@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCartBox } from './../actions';
 
 function Header() {
-    const { cartModal, carts } = useSelector(state => state);
+    const { carts } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const [mobileSearch, setMobileSearchsetSearch] = useState(false);

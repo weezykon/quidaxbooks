@@ -11,7 +11,7 @@ import { setSearchResults, setIsSearching } from '../actions';
 const Search = () => {
     const [search, setSearch] = useState('');
     const [started, setStarted] = useState(false);
-    const { isSearching, books, searchResults } = useSelector(state => state);
+    const { isSearching, books } = useSelector(state => state);
     const dispatch = useDispatch();
     const history = useHistory()
     const location = useLocation() 

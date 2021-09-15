@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { GET_BOOK } from '../client/queries';
 import { useParams } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
@@ -14,7 +14,7 @@ const Book = () => {
     const { id } = useParams();
 
     // use state
-    const { loading, error, data } = useQuery(GET_BOOK, { variables: { id } });
+    const { loading, data } = useQuery(GET_BOOK, { variables: { id } });
     const [book, setBook] = useState({});
 
     useEffect(() => {

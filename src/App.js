@@ -2,7 +2,6 @@
 import { ApolloClient, ApolloProvider, HttpLink, from, InMemoryCache } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
-import logo from './logo.svg';
 import './styles/app.scss';
 import { Route } from 'react-router-dom';
 import Header from './components/Header';
