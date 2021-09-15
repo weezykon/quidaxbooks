@@ -132,11 +132,11 @@ body {
 
     @keyframes signup-response{
       from {opacity :1;}
-      to {opacity :0;}
+      to {visibility:hidden;opacity :0;}
   }
 
   @-webkit-keyframes signup-response{
       from {opacity :1;}
-      to {opacity :0;}
+      to {visibility:hidden;opacity :0;}
   }
 }
