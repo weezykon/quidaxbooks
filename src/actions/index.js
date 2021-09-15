@@ -39,3 +39,17 @@ export const DECREASE_CART_ITEM = (data) => {
         data
     };
 }
+
+export const setIsSearching = (data) => {
+    return {
+        type: 'isSearching',
+        data
+    };
+}
+
+export const setSearchResults = (data) => {
+    return {
+        type: 'modifySearch',
+        data
+    };
+}

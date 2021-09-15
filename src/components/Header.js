@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from './../assets/images/logo.svg';
 import bookIcon from './../assets/images/book.svg';
 import cartIcon from './../assets/images/cart.svg';
-import searchIcon from './../assets/images/search.svg';
-// import closeIcon from './../assets/images/close.svg';
+import Search from './Search';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -31,13 +30,7 @@ function Header() {
                         </div>
                     </div>
                     <div className="flex justify-center flex-1">
-                        <input type="text" placeholder="Search books, genres, authors, etc." className="bg-white border border-gray py-2 px-4 block w-half appearance-none leading-normal" />
-                        <button className="w-11 bg-gray-100 border-t border-r border-b border-l-0 border-gray flex justify-center items-center">
-                            <img src={searchIcon} alt="Search Icon" />
-                        </button>
-                        {/* <button className="w-11 bg-gray-100 border-t border-r border-b border-gray-400 flex justify-center items-center">
-                            <img src={closeIcon} alt="Close Icon" />
-                        </button> */}
+                        <Search />
                     </div>
                     <div className="flex justify-end">
                         <div>

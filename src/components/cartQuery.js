@@ -29,3 +29,12 @@ export const getValues = (items) => {
     if(items && items.length > 0) return items.map(item => item.name).join(', ')
     return ''
 }
+
+export const quickSearch = (books, search) => {
+    if(search) {
+        return books.filter(book => {
+            return book.title.toLowerCase().includes(search.toLowerCase())
+        })
+    }
+    return books
+}

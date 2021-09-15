@@ -12,7 +12,7 @@ import { setBooks } from './../actions';
 function Home() {
     const { loading, error, data } = useQuery(GET_ALL_BOOKS);
 
-    const { books } = useSelector(state => state);
+    const { books, isSearching, searchResults } = useSelector(state => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,25 +24,43 @@ function Home() {
 
     return (
         <>
-            <section className="featured">
-                <div className="title">
-                    <p className="font-medium">Featured Books</p>
-                </div>
-                <div className="slider">
-                    <FeaturedBooks books={books} />
-                </div>
-            </section>
+            {books.length && !isSearching > 0 ?(
+                <section className="featured">
+                    <div className="title">
+                        <p className="font-medium">Featured Books</p>
+                    </div>
+                    <div className="slider">
+                        <FeaturedBooks books={books} />
+                    </div>
+                </section>
+            ) : ('')}
             <section className="container">
                 <div className="books">
                     <div className="title-head">
-                        <p className="font-medium">All Books</p>
-                    </div>
-                    <section className="lists">
-                        {loading && (
-                            <Loader />
+                        {(!isSearching ) ? (
+                            <p className="font-medium">All Books</p>
+                        ) : (
+                            <p><b>{searchResults.books.length} results</b> found for <b>`{searchResults.keywords}`</b></p>
                         )}
-                        {books.map(book => <Book book={book} key={book.id} />)}
-                    </section>
+                    </div>
+                    {(!isSearching) ? (
+                        <section className="lists">
+                            {loading && (
+                                <Loader />
+                            )}
+                            {books.map(book => <Book book={book} key={book.id} />)}
+                        </section>
+                    ) : (
+                        isSearching && searchResults.books.length > 0 ? (
+                            <section className="lists">
+                                {searchResults.books.map(book => <Book book={book} key={book.id} />)}
+                            </section>
+                        ) : (
+                            <section className="empty-search">
+                                <p className="font-medium">No results found</p>
+                            </section>
+                        )
+                    )}
                 </div>
             </section>
         </>
