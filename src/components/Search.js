@@ -33,6 +33,7 @@ const Search = () => {
             dispatch(setIsSearching(false));
             setSearchResults([]);
             setStarted(false);
+            history.push("/")
         }
     }
 
@@ -46,6 +47,7 @@ const Search = () => {
         dispatch(setIsSearching(false));
         setSearch('');
         setStarted(false);
+        history.push("/")
     }
     return (
         <>
