@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { GET_ALL_BOOKS } from '../client/queries';
 import Book from '../components/Book';
 import Loader from '../components/Loader';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { setBooks } from './../actions';
+
 function Home() {
     const { loading, error, data } = useQuery(GET_ALL_BOOKS);
-    const [books, setBooks] = useState([]);
+
+    const { books } = useSelector(state => state);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (data) {
-            setBooks(data.books);
+            // setBooks(data.books);
+            dispatch(setBooks(data.books))
         }
     }, [data]);
 

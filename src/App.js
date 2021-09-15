@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import './styles/app.scss';
 import { Route } from 'react-router-dom';
 import Header from './components/Header';
+import CartModal from './components/CartModal';
 
 // pages
 import Home from './pages/home';
@@ -47,6 +48,7 @@ function App() {
           </Route>
         ))}
       </main>
+      <CartModal />
     </ApolloProvider>
   );
 }

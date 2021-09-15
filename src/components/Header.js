@@ -1,12 +1,22 @@
 import react from "react";
-import { NavLink  } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from './../assets/images/logo.svg';
 import bookIcon from './../assets/images/book.svg';
 import cartIcon from './../assets/images/cart.svg';
 import searchIcon from './../assets/images/search.svg';
 // import closeIcon from './../assets/images/close.svg';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { setCartBox } from './../actions';
+
 function Header() {
+    const { cartModal, carts } = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    const openCart = () => {
+        dispatch(setCartBox(true))
+    }
     return (
         <>
             <header className="header bg-white border-b border-gray-100 px-4 shadow-sm">
@@ -33,11 +43,15 @@ function Header() {
                         <div>
                             <img src={bookIcon} alt="Book Icon" />
                         </div>
-                        <div className="relative flex ml-8 w-8">
+                        <div className="relative flex ml-8 w-8 cart-box" onClick={() => { openCart() }}>
                             <img src={cartIcon} alt="Cart Icon" />
-                            <div className="counter">
-                                3
-                            </div>
+                            {carts.length > 0 ? (
+                                <div className="counter">
+                                    {
+                                        carts.reduce((acc, curr) => acc + curr.quantity, 0)
+                                    }
+                                </div>
+                            ) : ('')}
                         </div>
                     </div>
                 </section>

@@ -3,12 +3,23 @@ import { Rating } from 'react-simple-star-rating'
 import ReactMarkdown from 'react-markdown';
 import userIcon from './../assets/images/user.svg';
 import heartIcon from './../assets/images/heart.svg';
-import cartIcon from './../assets/images/cart.svg';
+import cartIcon from './../assets/images/cart-white.svg';
+import cartBlackIcon from './../assets/images/cart.svg';
+import { addCart, getValues } from './cartQuery';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { setCartBox, setCarts } from '../actions';
 
 const BookDetails = ({ book }) => {
-    const getValues = (items) => {
-        if(items && items.length > 0) return items.map(item => item.name).join(', ')
-        return ''
+    const { cartModal, carts } = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    const addToCart = (book) => {
+        const cartOperation = addCart(carts, book); 
+        dispatch(setCarts(cartOperation.carts));
+        if (cartOperation.new) {
+            dispatch(setCartBox(true));
+        }
     }
     return (
             <div className="book">
@@ -22,12 +33,13 @@ const BookDetails = ({ book }) => {
                             )
                         }
                         <p className="text-price">${book.price}</p>
-                        {/* onClick={() => { setCartModal(!cartModal) }} */}
-                        {/* <button onClick={() => { setCartModal(!cartModal) }}>
-                            <img src={cartIcon} alt="cart" className="white-cart-icon" />
-                            <img src={cartBlackIcon} alt="cart" className="black-cart-icon" />
-                            <span>Add to Cart</span>
-                        </button> */}
+                        {book.available_copies > 0 ? (
+                            <button onClick={() => { addToCart(book) }}>
+                                <img src={cartIcon} alt="cart" className="white-cart-icon" />
+                                <img src={cartBlackIcon} alt="cart" className="black-cart-icon" />
+                                <span>Add to Cart</span>
+                            </button>
+                        ) : ('')}
                     </div>
 
                     <div className="book-content">

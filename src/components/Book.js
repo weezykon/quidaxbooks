@@ -4,12 +4,24 @@ import { NavLink } from 'react-router-dom';
 import userIcon from './../assets/images/user.svg';
 import heartIcon from './../assets/images/heart.svg';
 import cartIcon from './../assets/images/cart.svg';
+import { addCart, getValues } from './cartQuery';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { setCartBox, setCarts } from '../actions';
 
 function Book({ book }) {
-    const getValues = (items) => {
-        if(items.length > 0) return items.map(item => item.name).join(', ')
-        return ''
+    const { cartModal, carts } = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    const addToCart = e => {
+        e.preventDefault();
+        const cartOperation = addCart(carts, book); 
+        dispatch(setCarts(cartOperation.carts));
+        if (cartOperation.new) {
+            dispatch(setCartBox(true));
+        }
     }
+
     return (
         <NavLink to={'book/' + book.id}>
             <div className="book flex">
@@ -34,18 +46,6 @@ function Book({ book }) {
                         <div className="flex flex-column rating-box">
                             <p>Rating: {book.rating} </p>
                             <Rating ratingValue={book.rating} /* Rating Props */ />
-                            {/* <div className="star">
-                                <input type="radio" name="rating" id="rating-5" />
-                                <label htmlFor="rating-5"></label>
-                                <input type="radio" name="rating" id="rating-4" />
-                                <label htmlFor="rating-4"></label>
-                                <input type="radio" name="rating" id="rating-3" />
-                                <label htmlFor="rating-3"></label>
-                                <input type="radio" name="rating" id="rating-2" />
-                                <label htmlFor="rating-2"></label>
-                                <input type="radio" name="rating" id="rating-1" />
-                                <label htmlFor="rating-1"></label>
-                            </div> */}
                         </div>
                     </div>
                     <div className="cart flex flex-column">
@@ -63,7 +63,7 @@ function Book({ book }) {
                         <div className="cart-btn">
                             {
                                 book.available_copies > 0 ? (
-                                    <button className="">
+                                    <button className="" onClick={addToCart}>
                                         <img src={cartIcon} alt="cart" />
                                         <span className="mx-3">Add to Cart</span>
                                     </button>
