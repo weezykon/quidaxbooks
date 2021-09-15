@@ -23,8 +23,8 @@ const Book = () => {
         }
     }, [data]);
     return (
-        <>
-            <section className="book-page">
+        <section className="container">
+            <div className="book-page">
                 <div className="navigation">
                     <NavLink to="/">
                         <span><img src={backArrowIcon} alt="cart" /> <span className="font-semibold mx-3">Back</span></span>
@@ -36,8 +36,8 @@ const Book = () => {
                 {book ? (
                     <BookDetails book={book} />
                 ) : ('')}
-            </section>
-        </>
+            </div>
+        </section>
     )
 }
 

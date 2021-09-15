@@ -1,7 +1,87 @@
-.books {
-    padding: 0 20px;
+@import "./../variables.scss";
+
+.featured {
+    background: #fdfdfd;
 
     .title {
+        padding: 0 20px;
+        margin-bottom: 10px;
+
+        p {
+            width: 100%;
+            padding: 1rem 0;
+            border-bottom: 1px solid #EEEEEE
+        }
+    }
+
+    .slider {
+        .swiper-container {
+            position: relative;
+
+            .slide-item {
+                img {
+                    width: 220px;
+                    height: 330px;
+                    box-shadow: rgba(0, 0, 0, 0.15) 0px 30px 30px;
+                }
+
+                img:hover {
+                    --angle: 0deg;
+                    border: 5px solid;
+                    border-image: linear-gradient(var(--angle), #65c100, #fdfdfd) 1;
+                    animation: 10s rotate linear infinite;
+
+                    @keyframes rotate {
+                        to {
+                            --angle: 360deg;
+                        }
+                    }
+
+                    @property --angle {
+                        syntax: '<angle>';
+                        initial-value: 0deg;
+                        inherits: false;
+                    }
+                }
+            }
+
+            .swiper-wrapper {
+                padding-top: 20px;
+                padding-bottom: 60px;
+            }
+
+            .swiper-button-prev {
+                background: linear-gradient(180deg, rgba(248, 248, 250, 0.8) 0%, #F8F8FA 51.36%, rgba(248, 248, 250, 0.8) 100%);
+                mix-blend-mode: normal;
+                opacity: 0.7;
+                height: 470px;
+                width: 50px;
+                top: 0;
+                left: 0;
+            }
+
+            .swiper-button-next {
+                background: linear-gradient(180deg, rgba(248, 248, 250, 0.8) 0%, #F8F8FA 51.36%, rgba(248, 248, 250, 0.8) 100%);
+                mix-blend-mode: normal;
+                opacity: 0.7;
+                height: 470px;
+                width: 50px;
+                top: 0;
+                right: 0;
+            }
+
+            .swiper-pagination-bullet-active {
+                background-color: $green !important;
+            }
+        }
+    }
+}
+
+.books {
+    margin-top: 30px;
+
+    .title-head {
+        padding: 0 20px;
 
         p {
             width: 100%;
@@ -12,6 +92,7 @@
 
     .lists {
         margin: 0;
+        padding: 0 20px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
 

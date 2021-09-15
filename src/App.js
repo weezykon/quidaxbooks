@@ -41,7 +41,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Header />
-      <main className="container">
+      <main>
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
             <Component />

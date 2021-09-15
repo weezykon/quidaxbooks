@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_ALL_BOOKS } from '../client/queries';
 import Book from '../components/Book';
 import Loader from '../components/Loader';
+import FeaturedBooks from '../components/FeaturedBooks';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,17 +23,29 @@ function Home() {
     }, [data]);
 
     return (
-        <section className="books">
-            <div className="title">
-                <p className="font-medium">All Books</p>
-            </div>
-            <section className="lists">
-                {loading && (
-                    <Loader />
-                )}
-                {books.map(book => <Book book={book} key={book.id} />)}
+        <>
+            <section className="featured">
+                <div className="title">
+                    <p className="font-medium">Featured Books</p>
+                </div>
+                <div className="slider">
+                    <FeaturedBooks books={books} />
+                </div>
             </section>
-        </section>
+            <section className="container">
+                <div className="books">
+                    <div className="title-head">
+                        <p className="font-medium">All Books</p>
+                    </div>
+                    <section className="lists">
+                        {loading && (
+                            <Loader />
+                        )}
+                        {books.map(book => <Book book={book} key={book.id} />)}
+                    </section>
+                </div>
+            </section>
+        </>
     )
 }
 
