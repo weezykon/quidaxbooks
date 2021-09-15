@@ -45,3 +45,98 @@ body {
     font-weight: 400;
     color: $white;
 }
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: aliceblue;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  // animation: away .5 ease forwards 10s;
+  // transition: visibility 0s linear 0.5s;
+  animation:signup-response 0.5s 1;
+  -webkit-animation:signup-response 0.5s 1;
+  animation-fill-mode: forwards;
+
+  animation-delay:2s;
+  -webkit-animation-delay:1s; /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+
+  svg {
+    box-shadow: 0px 0px 0px 30px rgba(255, 255, 255, 0);
+  }
+
+  #quiLOGO {
+    animation: fill 0.5 ease forwards 5s;
+  }
+
+  svg path:nth-child(1) {
+    stroke-dasharray: 356px;
+    stroke-dashoffset: 356px;
+    animation: line-anim 2s ease forwards;
+  }
+
+  svg path:nth-child(2) {
+    stroke-dasharray: 266px;
+    stroke-dashoffset: 266px;
+    animation: line-anim 2s ease forwards 0.5s;
+  }
+
+  svg path:nth-child(3) {
+    stroke-dasharray: 540px;
+    stroke-dashoffset: 540px;
+    animation: line-anim 2s ease forwards 0.10s;
+  }
+
+  svg path:nth-child(4) {
+    stroke-dasharray: 536px;
+    stroke-dashoffset: 536px;
+    animation: line-anim 2s ease forwards 0.15s;
+  }
+
+
+  @keyframes line-anim {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fill {
+    from {
+      fill: transparent;
+    }
+
+    to {
+      fill: #fff;
+    }
+  }
+
+  @keyframes away {
+    0% {
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 0.8;
+    }
+
+    100% {
+      opacity: 0;
+    }
+
+  }
+
+    @keyframes signup-response{
+      from {opacity :1;}
+      to {opacity :0;}
+  }
+
+  @-webkit-keyframes signup-response{
+      from {opacity :1;}
+      to {opacity :0;}
+  }
+}

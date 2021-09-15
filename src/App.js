@@ -7,6 +7,7 @@ import './styles/app.scss';
 import { Route } from 'react-router-dom';
 import Header from './components/Header';
 import CartModal from './components/CartModal';
+import Preloader from './components/Preloader';
 
 // pages
 import Home from './pages/home';
@@ -42,6 +43,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Preloader />
       <Header />
       <main>
         {routes.map(({ path, Component }) => (
