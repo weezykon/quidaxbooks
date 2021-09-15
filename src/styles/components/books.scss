@@ -19,29 +19,94 @@
             position: relative;
 
             .slide-item {
+                position: relative;
                 img {
                     width: 220px;
                     height: 330px;
                     box-shadow: rgba(0, 0, 0, 0.15) 0px 30px 30px;
                 }
 
-                img:hover {
-                    --angle: 0deg;
-                    border: 5px solid;
-                    border-image: linear-gradient(var(--angle), #65c100, #fdfdfd) 1;
-                    animation: 10s rotate linear infinite;
+                .slide-item-details {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgb(0, 0, 0));
+                    position: absolute;
+                    inset: 0px;
+                    width: 220px;
+                    height: 100%;
+                    opacity: 0;
+                    padding: 20px;
+                    transition: opacity 0.3s ease-in-out 0s;
+                    color: white;
+                    font-size: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    -webkit-box-pack: justify;
+                    justify-content: space-between;
 
-                    @keyframes rotate {
-                        to {
-                            --angle: 360deg;
+                    .details {
+                        .author {
+                            .h3 {
+                                font-size: 30px;
+                                line-height: 40px;
+                            }
+    
+                            .p {
+                                font-size: 13px;
+                                line-height: 15px;
+                            }
+                        }
+
+                        .genre {
+                            .p {
+                                font-size: 13px;
+                                line-height: 15px;
+                            }
+                        }
+
+                        .tags {
+                            .p {
+                                font-size: 13px;
+                                line-height: 15px;
+                            }
                         }
                     }
+                    .rating {
+                        display: flex;
+                        height: 50px;
+                        .user {
+                            p {
+                                font-size: 13px;
+                                line-height: 25px;
+                            }
 
-                    @property --angle {
-                        syntax: '<angle>';
-                        initial-value: 0deg;
-                        inherits: false;
+                            img {
+                                width: 20px;
+                            }
+                        }
+
+                        .heart {
+                            p {
+                                font-size: 13px;
+                                line-height: 25px;
+                            }
+
+                            img {
+                                width: 17px;
+                            }
+                        }
+
+                        .rating-box {
+                            border-left: 2px solid #EEEEEE;
+                            padding-left: 10px;
+
+                            span {
+                                display: flex;
+                            }
+                        }
                     }
+                }
+
+                .slide-item-details:hover {
+                    opacity: .8;
                 }
 
 
