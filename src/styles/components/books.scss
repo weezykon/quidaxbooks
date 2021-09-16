@@ -114,10 +114,14 @@
 
 
                 // media queries
-                @media (max-width: 500px) {
+                @media (max-width: 768px) {
                     img {
                         width: 140px;
                         height: 220px;
+                    }
+
+                    .slide-item-details:hover {
+                        opacity: 0 !important;
                     }
                 }
             }
@@ -163,7 +167,7 @@
             }
 
             //media queries
-            @media (max-width: 500px) {
+            @media (max-width: 768px) {
                 .swiper-button-prev, .swiper-button-next {
                     height: 290px;
                     width: 40px;
