@@ -29,7 +29,7 @@ function CartItem({ cart }) {
         <>
             <div className="cart-item">
                 <div className="cart-item-details">
-                    <img src={cart.book.image_url} alt="book" />
+                    <img src={cart.book.image_url} alt={book.title} />
                     <div className="cart-item-details-text">
                         <div className="book-author">
                             <p className="font-medium">{cart.book.title}</p>
