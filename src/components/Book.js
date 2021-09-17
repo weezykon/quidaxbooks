@@ -26,7 +26,7 @@ function Book({ book }) {
         <NavLink to={'book/' + book.id}>
             <div className="book flex">
                 <div className="book-img">
-                    <img src={book.image_url} alt="book" />
+                    <img src={book.image_url} alt={book.title} />
                 </div>
                 <div className="book-info flex flex-column justify-around px-4">
                     <div className="author">
